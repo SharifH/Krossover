@@ -1,11 +1,11 @@
 @font-face{
-font-family: myFirstFont;
+font-family: digital;
 src: url("../fonts/DS-DIGI.TTF");
 }
 body{
   height: 400px;
   padding: 30px;
-  font-family:myFirstFont;
+  font-family:digital;
 }
 #clock{
   font-size: 100px;
@@ -13,7 +13,11 @@ body{
   padding: 10px;
   border: 5px solid black;
   background-color: #34495e;
-  margin: 40px;
+  margin: 0 auto;
+  width: 450px;
+  display: block;
+  border-radius: 5%;
+  position: relative;
 }
 time {
   display:block;
@@ -23,14 +27,12 @@ time {
   height:300px;
   margin:30px auto;
   border-radius:50%;
-  background:whitesmoke;
-  border:10px solid #999;
+  background:#ecf0f1;
+  border:10px solid black;
 }
 
 .hand{
   position:absolute;
-  opacity:0;
-  transition:opacity .2s;
 }
 
 .tick-container{
@@ -50,7 +52,8 @@ time {
   content:"";
   width:10px;
   height:25px;
-  background:#222; }
+  background:#222;
+}
 .tick:after{
   bottom:0;
 }
@@ -58,7 +61,7 @@ time {
   width:12px;
   height:160px;
   top:15px;
-  background:rgba(20,20,20,0.9);
+  background:black;
   left:144px;
   -webkit-transform-origin:center 135px;
 }
@@ -67,7 +70,7 @@ time {
   width:16px;
   height:132px;
   top:50px;
-  background:rgba(20,20,20,0.9);
+  background:black;
   left:142px;
   -webkit-transform-origin:center 100px;
 }
@@ -76,7 +79,7 @@ time {
   width:4px;
   height:155px;
   top:30px;
-  background:rgb(255,70,70);
+  background:red;
   left:149px;
   -webkit-transform-origin:center 120px;
   -webkit-animation:seconds 60s linear infinite;

@@ -1,9 +1,16 @@
 $(document).ready(function() {
-  setInterval(function() {
-    var currentDate = new Date();
+  var currentDate = new Date();
+
+  var interval = setInterval(function() {
+    currentDate = new Date();
     updateAnalogClock(currentDate);
     updateDigitalClock(currentDate);
   }, 1000);
+
+  // setInterval(function() {
+  //   //alert(currentDate);
+  //   clearInterval(interval);
+  // }, 10000);
 });
 
 function updateRotation(id, degrees) {
@@ -20,33 +27,38 @@ function updateRotation(id, degrees) {
 
 function updateAnalogClock(currentDate) {
   var hours = currentDate.getHours();
-  var mins = currentDate.getMinutes();
-  var secs = currentDate.getSeconds();
+  var minutes = currentDate.getMinutes();
+  var seconds = currentDate.getSeconds();
 
-  var hdegree = hours * 30 + (mins / 2);
-  var mdegree = mins * 6;
-  var sdegree = secs * 6;
+  var hourDegree = hours * 30 + (minutes / 2);
+  var minuteDegree = minutes * 6;
+  var secondDegree = seconds * 6;
 
-  $(".hand").css("opacity","1");
-
-  updateRotation("hour", hdegree);
-  updateRotation("minute", mdegree);
-  updateRotation("second", sdegree);
+  updateRotation("hour", hourDegree);
+  updateRotation("minute", minuteDegree);
+  updateRotation("second", secondDegree);
 }
 
 function updateDigitalClock(currentDate) {
-  var currentHr = currentDate.getHours();
-  var currentMin = currentDate.getMinutes();
-  var currentSecs = currentDate.getSeconds();
+  var hours = currentDate.getHours();
+  var minutes = currentDate.getMinutes();
+  var seconds = currentDate.getSeconds();
 
-  currentMin = (currentMin < 10 ? "0" : "") + currentMin;
-  currentSecs = (currentSecs < 10 ? "0" : "") + currentSecs;
+  minutes = (minutes < 10 ? "0" : "") + minutes;
+  seconds = (seconds < 10 ? "0" : "") + seconds;
 
-  var timeOfDay = (currentHr < 12) ? "AM" : "PM";
-  currentHr = (currentHr > 12) ? currentHr - 12 : currentHr;
-  currentHr = (currentHr == 0) ? 12 : currentHr;
+  var ampm = (hours < 12) ? "AM" : "PM";
+  hours = (hours > 12) ? hours - 12 : hours;
+  hours = (hours == 0) ? 12 : hours;
 
-  var currentTimeString = currentHr + ":" + currentMin + ":" + currentSecs + " " + timeOfDay;
+  var currentTimeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
 
-  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  $("#clock").text(currentTimeString);
+
+
+  // $('.container').hide();
+  // $('.btn').click(function() {
+  //   $('.container').hide();
+  //   $('#'+this.id.split('-')[1]+'_container').show();
+// });
 }
