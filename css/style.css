@@ -1,6 +1,6 @@
 @font-face{
 font-family: myFirstFont;
-src: url(DS-DIGI.TTF);
+src: url("../fonts/DS-DIGI.TTF");
 }
 body{
   height: 400px;
